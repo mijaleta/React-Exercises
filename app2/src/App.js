@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import { Button } from 'react-bootstrap';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <h1>react js exercises</h1>
+<MyButton/>
+      <MyComponent/>
     </div>
   );
 }
+function MyButton() {
+  return <Button  className="buttonColor" variant="info">Click me!</Button>;
+}
+function MyComponent(){
+  // for storing state of my app 
+  const [count, setCount] = useState(0)
+function increment(){
+  setCount(count+1)
+}
+
+function decrement(){
+  setCount(count-1)
+}
+
+  return (
+    <>
+    <div>
+    <h1>simple count method using increment and decrement method</h1>
+    <button onClick={increment}>add</button>
+    <p>you clicked {count} times</p>
+    <button onClick={decrement}>subtract </button>
+   </div>
+    
+    </>
+  )
+}
+
 
 export default App;
